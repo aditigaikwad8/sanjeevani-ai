@@ -1,0 +1,7 @@
+{
+  "model": "VQC (4 qubits)",
+  "accuracy": 0.6833,
+  "precision": 0.6452,
+  "recall": 0.7143,
+  "f1": 0.678
+}
