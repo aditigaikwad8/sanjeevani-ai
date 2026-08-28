@@ -72,7 +72,7 @@ joblib.dump(angle_scaler, "models/vqc_angle_scaler.joblib")
 print("Saved VQC angle scaler.")
 
 try:
-    joblib.dump(vqc, "models/vqc_model.joblib")
+    vqc.to_dill("models/vqc_model.model")
     print("Saved VQC model.")
 except Exception as e:
     print("Could not save VQC model object (known qiskit-machine-learning limitation):", e)
