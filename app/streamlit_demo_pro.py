@@ -7,16 +7,6 @@ Shows THREE models side by side: Classical SVM, Quantum Kernel SVM
 (QSVC), and VQC — each as a color-coded speedometer gauge.
 """
 
-"""
-Sanjeevani AI — Live Demo (Deliverable 3)
-=============================================
-Shows THREE models side by side: Classical SVM, Quantum Kernel SVM
-(QSVC), and VQC — each as a color-coded speedometer gauge. Includes
-one-click example patients for a fast, reliable live demo.
-
-Run from your project root:
-    streamlit run app/streamlit_demo_pro.py
-"""
 
 import streamlit as st
 import numpy as np
