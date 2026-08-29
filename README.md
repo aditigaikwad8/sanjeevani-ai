@@ -280,8 +280,6 @@ sanjeevani-ai/
 └── requirements.txt
 ```
 
-> 💡 **Note:** the logo file currently has a space in its name (`sanjeevani logo.png`). It works fine on GitHub as shown above, but if you'd rather avoid spaces in filenames (cleaner for CLI/scripting), rename it to `sanjeevani_logo.png` and update the two `<img src="...">` tags near the top and bottom of this README to match.
-
 ---
 
 ## Key Technical Decisions
@@ -291,14 +289,6 @@ sanjeevani-ai/
 - **Why both QSVC and VQC?** These are two fundamentally different quantum ML paradigms — kernel-based vs. variational — and they behave differently in practice, as this project's own results show (VQC generalizes better than QSVC here). Building both surfaces a genuine comparative finding a single-quantum-model project would miss entirely.
 - **Why simulator-only, no real quantum hardware?** Consistent with the hackathon's defined scope (small qubit counts, simulator only) and standard practice in current QML research literature.
 
----
-
-## Limitations & Honest Disclosures
-
-- Training set for quantum models was subsampled (120–180 patients) to keep runtime feasible on classical hardware simulating quantum circuits — quantum kernel computation scales quadratically with sample count.
-- QSVC shows a persistent overfitting gap that cross-validated `C` tuning did not resolve — attributed to the feature map's expressiveness relative to dataset size, not a bug in the pipeline.
-- All quantum computation runs on Qiskit's `AerSimulator`, not real quantum hardware.
-- Results are based on a single train/test split; a full k-fold cross-validated evaluation would give tighter confidence intervals but was out of scope for the hackathon timeline.
 
 ---
 
