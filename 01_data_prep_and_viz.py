@@ -1,12 +1,22 @@
 import pandas as pd
 import numpy as np
+import os
+import joblib
+
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.ensemble import RandomForestClassifier
+
  
 RANDOM_STATE = 42
  
 df = pd.read_csv("data/heart.csv")
+
+before_rows = len(df)
+df = df.dropna()
+after_rows = len(df)
+print(f"Rows before dropna: {before_rows}, after dropna: {after_rows}")
+
 X = df.drop(columns=["target"])
 y = df["target"]
 feature_names = X.columns.tolist()
@@ -18,6 +28,10 @@ X_train, X_test, y_train, y_test = train_test_split(
 scaler = StandardScaler()
 X_train_scaled = scaler.fit_transform(X_train)
 X_test_scaled = scaler.transform(X_test)
+
+os.makedirs("models", exist_ok=True)
+joblib.dump(scaler, "models/feature_scaler.joblib")
+print("Saved feature scaler to models/feature_scaler.joblib")
  
 rf = RandomForestClassifier(n_estimators=300, random_state=RANDOM_STATE)
 rf.fit(X_train_scaled, y_train)
