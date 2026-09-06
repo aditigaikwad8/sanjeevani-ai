@@ -1,0 +1,23 @@
+[
+  {
+    "model": "Ensemble: QSVC + VQC (quantum-only)",
+    "accuracy": 0.6739,
+    "precision": 0.675,
+    "recall": 0.7941,
+    "f1": 0.7297
+  },
+  {
+    "model": "Ensemble: Classical + QSVC + VQC (equal weight)",
+    "accuracy": 0.75,
+    "precision": 0.7414,
+    "recall": 0.8431,
+    "f1": 0.789
+  },
+  {
+    "model": "Ensemble: Classical + QSVC + VQC (weighted 50/25/25)",
+    "accuracy": 0.7826,
+    "precision": 0.7768,
+    "recall": 0.8529,
+    "f1": 0.8131
+  }
+]

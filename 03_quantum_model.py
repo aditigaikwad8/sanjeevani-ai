@@ -24,7 +24,7 @@ n_qubits = X_train_q.shape[1]
 feature_map = zz_feature_map(feature_dimension=n_qubits, reps=2, entanglement="linear")
 quantum_kernel = FidelityQuantumKernel(feature_map=feature_map)
 
-max_train_samples = 180
+max_train_samples = 250
 rng = np.random.RandomState(42)
 idx = rng.choice(len(X_train_q), max_train_samples, replace=False)
 X_train_q_sub = X_train_q[idx]
@@ -48,7 +48,7 @@ print("============================================================")
 param_grid = {"C": [0.1, 0.5, 1, 2, 5]}
 
 grid = GridSearchCV(
-    estimator=QSVC(quantum_kernel=quantum_kernel),
+    estimator=QSVC(quantum_kernel=quantum_kernel, probability=True),
     param_grid=param_grid,
     cv=3,
     scoring="accuracy",

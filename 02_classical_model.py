@@ -1,6 +1,8 @@
 import numpy as np
 import json
 import joblib
+import warnings
+warnings.filterwarnings("ignore", category=FutureWarning)
 
 from sklearn.linear_model import LogisticRegression
 from sklearn.svm import SVC

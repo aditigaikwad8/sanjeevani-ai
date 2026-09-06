@@ -31,7 +31,7 @@ feature_map = zz_feature_map(feature_dimension=n_qubits, reps=2, entanglement="l
 ansatz = real_amplitudes(num_qubits=n_qubits, reps=2, entanglement="linear")
 
 # Keep training set small — VQC trains iteratively, so this keeps runtime reasonable
-max_train_samples = 120
+max_train_samples = 180
 rng = np.random.RandomState(42)
 idx = rng.choice(len(X_train_q), max_train_samples, replace=False)
 X_train_q_sub = X_train_q[idx]
@@ -58,9 +58,9 @@ print(f"VQC inference took {infer_time:.1f} seconds")
 metrics = {
     "model": f"VQC ({n_qubits} qubits)",
     "accuracy": round(accuracy_score(y_test, preds), 4),
-    "precision": round(precision_score(y_test, preds), 4),
-    "recall": round(recall_score(y_test, preds), 4),
-    "f1": round(f1_score(y_test, preds), 4),
+    "precision": round(precision_score(y_test, preds, zero_division=0), 4),
+    "recall": round(recall_score(y_test, preds, zero_division=0), 4),
+    "f1": round(f1_score(y_test, preds, zero_division=0), 4),
 }
 print(metrics)
 
